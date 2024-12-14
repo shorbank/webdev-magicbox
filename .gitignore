@@ -1,0 +1,26 @@
+# Node modules (if applicable)
+node_modules/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+*.log
+
+# IDE and editor specific files
+.vscode/
+.idea/
+
+# Temporary and backup files
+*.tmp
+*.swp
+*.bak
+
+# Chrome Extension-specific files
+*.pem  # Private keys (if any)
+
+# Build or output directories (if applicable)
+dist/
+build/
+
+# Ignore all .DS_Store files, which are macOS system files
+.DS_Store

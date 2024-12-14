@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR-Code Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="animation-container">
+    <div class="animate-1"></div>
+    <div class="animate-2"></div>
+    <div class="animate-3"></div>
+    <div class="animate-4"></div>
+  </div>
+
+  <div class="app-wrapper">
+
+    <div class="header">
+      <img class="topper-image" src="./img/mb-image.png" alt="MagicBox Logo">
+      <h1>WebDev MagicBox</h1>
+    </div>
+
+    <!-- QR-Code Generator -->
+    <div class="feature-wrapper expandable active">
+      <h2>QR-Code Generator</h2>
+      <div class="content">
+        <p>Lass dir schnell einen QR-Code erstellen und speichere ihn als Bild oder skalierbare Vektorgrafik</p>
+        <div class="form">
+          <input type="text" id="textInput" placeholder="Link für QR-Code eingeben" />
+          <button id="generateButton" title="Generieren">
+            <img src="./img/MagicWand.svg" style="width: 16px;" alt="Generieren">
+          </button>
+        </div>
+        <div id="hintBox">
+          Hinweis: Je länger der Link, desto schwieriger ist der QR-Code zu scannen. <br> Ein Shortlink kann helfen.
+        </div>
+        <div id="qrCodeContainer"></div>
+        <div id="buttonContainer" style="display: none;">
+          <button id="savePngButton">Speichern als PNG</button>
+          <button id="saveSvgButton">Speichern als SVG</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key-Code Generator -->
+    <div class="feature-wrapper expandable">
+      <h2>Key-Code Generator</h2>
+      <div class="content">
+        <p>Erstelle dir so viele individuelle Key-Codes wie du willst</p>
+        <div class="form">
+          <input type="number" id="keyInput" placeholder="Anzahl eingeben" />
+          <button id="keyGenerateButton" title="Generieren">
+            <img src="./img/MagicWand.svg" style="width: 16px;" alt="Generieren">
+          </button>
+        </div>
+        <div id="keyOutputContainer"></div>
+      </div>
+    </div>
+
+    <div class="version">
+      WebDev MagicBox | Version 1.0.0
+    </div>
+  </div>
+
+
+  <script src="expandable.js"></script>
+  <script src="qrcode.js"></script>
+  <script src="qrgen.js"></script>
+  <script src="keygen.js"></script>
+</body>
+</html>

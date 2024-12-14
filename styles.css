@@ -1,0 +1,365 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; 
+  background-color: #4074a8;
+  overflow: hidden;
+}
+
+h1 {
+  user-select: none;
+  margin: 0; 
+}
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+h2, p {
+  user-select: none;
+  text-align: start;
+}
+
+p { 
+  font-size: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 0.5px solid #ffffff;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 0;
+  color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+input:focus {
+  outline: none
+}
+
+input::placeholder {
+  color: white; 
+}
+
+button {
+  background-color: #7674ff9e;
+  padding: 0 18px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+button:hover {
+  background-color: #7674ff;
+}
+
+.app-wrapper {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  /*background-image: linear-gradient(170deg, #4074a8, #7823a0);*/
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: calc(100% - 40px);
+  height: calc(100vh - 40px);;
+  overflow: scroll;
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(80px);
+}
+
+.feature-wrapper {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.5px solid rgba(255, 255, 255, 0.5); 
+}
+
+.expandable {
+  padding: 1rem 1.5rem;
+  height: auto; 
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.expandable.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.expandable h2 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  font-weight: bold; 
+}
+
+.expandable h2::after {
+  content: '+';
+  width: 30px;
+  aspect-ratio: 1/1;
+  font-size: 24px;
+  font-weight: lighter;
+  text-align: center;
+  justify-self: end;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.expandable.active h2::after {
+  transform: rotate(135deg);
+}
+
+.expandable .content {
+  height: 0px; 
+  visibility: hidden; 
+  overflow: hidden; 
+  width: 100%; 
+  max-width: 1000px;
+  transition: all 0.5s ease; 
+  interpolate-size: allow-keywords; 
+}
+
+.expandable.active .content {
+  height: auto; 
+  visibility: visible; 
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+#hintBox {
+  display: none;
+  background-color: #e74d3cbb;
+  color: white;
+  margin-top: 10px;
+  border-radius: 1rem;
+  padding: 10px;
+  animation: blendin 0.3s ease-in-out;
+}
+
+#qrCodeContainer {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background: white;
+  max-width: 200px;
+  width: 100%; 
+  border-radius: 1rem;
+}
+
+#qrCodeContainer.qrContent {
+  padding: 1rem;
+}
+
+#qrCodeContainer img,
+#qrCodeContainer canvas {
+  width: 100%;
+  user-select: none;
+}
+
+#buttonContainer {
+  margin-top: 20px;
+}
+
+#buttonContainer button {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#buttonContainer button:hover {
+  background-color: #0056b3;
+}
+
+.keyOutputContainer {
+  margin-top: 20px;
+  border: #d0d0d0 0.5px solid;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  font-family: 'Space Mono', 'Consolas' , sans-serif;
+}
+
+#keyOutputContainer p {
+  text-align: center;
+}
+
+.radioSort {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 0.5rem;
+}
+
+.radioSort label {
+  display: flex;
+  align-items: center;
+  text-align: start;
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+  height: 20px;
+  width: 30px;
+}
+
+.version {
+  color: #fff;
+}
+
+.end {
+  margin-bottom: 3rem;
+}
+
+#generateButton,
+#keyGenerateButton { 
+  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border: 0.5px solid #ffffff;
+  border-left: none;
+}
+
+/* ANIMATION */
+
+.animation-container div {
+  position: absolute;
+  border-radius: 50%;
+  animation: gradient 10s infinite;
+}
+
+@keyframes gradient {
+  70% {
+    transform: scale(1.2) translate(50px);
+  }
+}
+
+@keyframes blendin {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.animation-container .animate-1 {
+  height: 90%;
+  width: 80%;
+  background-color: #5432e7;
+  left: -29%;
+  top: -10%
+}
+
+.animation-container .animate-2 {
+  height: 80%;
+  width: 70%;
+  background-color: #9a30fd;
+  top: -12%;
+  right: -12%;
+  animation-delay: 8s;
+}
+
+.animation-container .animate-3 {
+  height: 65%;
+  width: 80%;
+  background-color: #5432e7;
+  bottom: -15%;
+  right: -20%;
+  animation-delay: 0.3s;
+}
+
+.animation-container .animate-4 {
+  height: 50%;
+  width: 75%;
+  background-color: #9a30fd;
+  bottom: -10%;
+  left: -18%;
+  animation-delay: 1.2s;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  gap: 1rem;
+}
+
+.header img {
+  width: 30px;
+  height: 42px;
+}
+
+#downloadButtonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.downloadBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 2rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 1em;
+}

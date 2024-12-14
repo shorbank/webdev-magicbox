@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "WebDev MagicBox",
+    "version": "1.0.0",
+    "description": "Handy tools for WebDevs",
+    "permissions": ["sidePanel"],
+    "side_panel": {
+      "default_path": "sidepanel.html"
+    },
+    "action": {
+      "default_title": "Web MagicBox"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "icons": {
+      "16": "/img/icon.png",
+      "48": "/img/icon.png",
+      "128": "/img/icon.png"
+    }
+  }
+  
